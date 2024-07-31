@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+</head>
+<style>
+    body {
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #c19a36;
+    }
+    .topnav {
+      z-index: 2;
+       padding-top: 25px; 
+      background-color:white;
+      width: 100%;
+      position: fixed;
+    }
+    
+    #logo{
+      height: 50px;
+      position: fixed;
+      top: 10px;
+      right: 180px;
+    }
+    
+    #logoname{
+      position: fixed;
+      top: 30px;
+      right: 115px;
+      font-size: x-large;
+      font-weight: bold;
+      color: #b69b03;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #000000;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+    }
+    
+    .topnav a.active {
+      background-color: #b89d04;
+      color: white;
+      
+    }
+    .addbox{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 350px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #ddaa43;
+    margin-top: 5%;
+}
+  .buynow{
+        color: #ffffff;
+        font-weight: bold;
+        text-align: justify;
+      padding: 5%;
+      padding-left: 10%;
+      font-size: larger;
+}
+  .butbuy{
+        border-radius: 0%;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        font-size: 15px;
+
+}
+button:hover{
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+.blackbox{
+  background-color: #000000;
+  width: auto;
+  color: aliceblue;
+  padding: 10px;
+  text-align: center;
+}
+h1{
+  font-size: 30px;
+}
+@media  (min-width: 500px) and (max-width: 1025px){
+    .topnav a{
+      font-size: 12px;
+    }
+    #logoname{
+      right: 30px;
+      font-size: 14px;
+    }
+    .addbox{
+      flex-direction: column;
+      height: 0%;
+      text-align: center;
+    }
+    .buynow{
+    text-align: center;
+   }
+    }
+    @media  (max-width: 431px) {
+    .topnav a{
+      font-size: 6px;
+    }
+    #logoname{
+      right: 25px;
+      font-size: 10px;
+      margin-top: -20px;
+    }
+    .addbox{
+      flex-direction: column;
+      font-size: 10px;
+      height: 450px;
+      text-align: center;
+    }
+   h1{
+    font-size: 21px;
+   }
+   .butbuy{
+    width: 80px;
+    height: 40px;
+   }
+   .buynow{
+    text-align: center;
+   }
+    }
+</style>
+<body>
+  <nav>  
+    <div class="topnav">
+      <a class="active" href="/CODES/Hhome.html">HOME</a>
+      <a href="/CODES/About us.html">ABOUT US</a>
+      <a href="/CODES/Contect.html">CONTACT</a>
+      <a href="/CODES/Booking.html">BOOKINGS</a>
+      <a href="/CODES/User.html">USER</a>
+      
+        <span id="lo">
+          
+          <span id="logoname">Rudraaksh Palace</span>
+        </span>
+      </div>
+    </nav>
+    
+</body>
+<div class="allbookingbox">
+
+    <br>
+    <div class="addbox">
+        <img class="img2" src="/IMAGES/dine2.avif">
+        
+        <div class="buynow">
+          <h1>Book a Table</h1>
+            <!-- <span style="font-size: 30px;">Book a Table</span>  -->
+            <p>Indulge in a culinary experience at Rudraksha.
+                 Reserve your table now to savor exquisite flavors in a delightful ambiance.
+                  Your gastronomic journey awaits!!!</p>
+            "Book Now & Get 10% Extra OFF on every Bookings"
+            <br><br>
+            <a href="/CODES/Dinning.html"><button class="butbuy">Book Now</button></a>
+        </div>
+    </div>
+    
+    <div class="addbox">
+        <img class="img2" src="/IMAGES/launge2.avif">
+        
+        <div class="buynow">
+            <h1>Stay with Us</h1>
+            <p>Experience unparalleled comfort and luxury at Rudraksha.
+                 Secure your haven of relaxation with our easy room booking process.
+                  Your retreat is just a click away...</p>
+                  "Book Now & Get 10% Extra OFF on every Bookings"<br><br>
+            <a href="/CODES/hotel_room 2.html"><button class="butbuy">Book Now</button></a>
+        </div>
+    </div>
+    
+    <div class="addbox">
+        <img class="img2" src="/IMAGES/event2.avif">
+        
+        <div class="buynow">
+          <h1>Plan Your Wedding</h1> 
+            <p>
+                Celebrate your love in style at Rudraksha.
+                 Our enchanting venues and personalized services make your dream wedding a reality.
+                  Start your journey together – book your magical day now...
+            </p>
+            "Book Now & Get 10% Extra OFF on every Bookings"<br><br>
+            <A href="/CODES/Weeding_hall.html"><button class="butbuy">Book Now</button></A>
+        </div>
+    </div>
+
+        <div class="addbox">
+            <img class="img2" src="/IMAGES/event.avif">
+            
+            <div class="buynow">
+                <h1>Host Your Event with Us</h1>
+                <p>Plan memorable events at Rudraksha.
+                     Whether it's a corporate gathering or a social celebration,
+                      our versatile spaces are tailored to meet your needs.
+                       Reserve your event space now...</p>
+                       "Book Now & Get 10% Extra OFF on every Bookings"<br><br>
+                <a href="/CODES/event.html"><button class="butbuy">Book Now</button></a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+<div class="blackbox">
+    <h4 style="text-align: center;">Follow For More</h4>  
+
+    <p> Privacy  |  Disclaimer  |  Contact  |  Sitemap  </p>
+    <p>@2023  Rudraksha Palace Enterprise Ltd. All Right Reserved.</p>
+    <p>-Designed & Developed By: Kshitiz Tomar & Krish Vrema-</p>
+    <br>
+  </div>
+    </html>

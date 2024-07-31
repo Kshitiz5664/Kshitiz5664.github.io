@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking</title>
+    <link rel="stylesheet" type="text/css" href="/CSSFILE/REGISTARTIONCSS.css">
+    
+</head>
+
+<nav>  
+    <div class="topnav">
+      <a class="active" href="/CODES/Hhome.html">HOME</a>
+      <a href="/CODES/About us.html">ABOUT US</a>
+      <a href="/CODES/Contect.html">CONTACT</a>
+      <a href="/CODES/Booking.html">BOOKINGS</a>
+      <a href="/CODES/User.html">USER</a>
+      
+        <span id="lo">
+          
+          <span id="logoname">Rudraaksh Palace</span>
+        </span>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+<body>
+    <div class="container">
+        <h1>Event Booking</h1><br>
+        <center><p>(Comfort, Relaxation & Luxury)</p></center>
+        <div class="alert" style="display: none;">Your message has been sent</div>
+
+        <form id="booking-form">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" pattern="[A-Za-z ]+" title="Please enter alphabetic characters only" required>
+                <small id="name-error" style="color: red; display: none;">Please enter alphabetic characters only.</small>
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact:</label>
+                <input type="text" id="phone" name="phone" pattern="[0-9]{10}" title="Please enter a 10-digit phone number." required>
+                <small id="phone-error" style="color: red; display: none;">Please enter a 10-digit phone number.</small>
+            </div>
+            <div class="form-group">
+                <label for="check_in">Check-in Date:</label>
+                <input type="date" id="check_in" name="check-in" required>
+            </div>
+            <div class="form-group">
+                <label for="check_out">Check-out Date:</label>
+                <input type="date" id="check_out" name="check-out" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="booking-type">How many Days for booking (Maximum 3 days):</label>
+                <select id="booking-type" name="booking-type" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Booking Request</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Function to validate full name input
+        document.getElementById('name').addEventListener('input', function () {
+            var fullNameInput = document.getElementById('name').value;
+            var nameRegex = /^[a-zA-Z ]+$/;
+            var nameError = document.getElementById('name-error');
+            if (!nameRegex.test(fullNameInput)) {
+                nameError.style.display = 'block';
+            } else {
+                nameError.style.display = 'none';
+            }
+        });
+
+        // Function to validate 10-digit phone number
+        document.getElementById('phone').addEventListener('input', function () {
+            var phoneInput = document.getElementById('phone').value;
+            var phoneError = document.getElementById('phone-error');
+            if (!/^\d{10}$/.test(phoneInput)) {
+                phoneError.style.display = 'block';
+            } else {
+                phoneError.style.display = 'none';
+            }
+        });
+
+        // Form submission validation
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            var fullNameInput = document.getElementById('name').value;
+            var nameRegex = /^[a-zA-Z ]+$/;
+            var nameError = document.getElementById('name-error');
+            if (!nameRegex.test(fullNameInput)) {
+                event.preventDefault();
+                nameError.style.display = 'block';
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            var phoneInput = document.getElementById('phone').value;
+            var phoneError = document.getElementById('phone-error');
+            if (!/^\d{10}$/.test(phoneInput)) {
+                event.preventDefault();
+                phoneError.style.display = 'block';
+            } else {
+                phoneError.style.display = 'none';
+            }
+        });
+    </script>
+    <script>
+        // Get today's date in the format "YYYY-MM-DD"
+        function getToday() {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, '0');
+          const day = String(today.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        }
+    
+        // Set the minimum date for the check-in field to today
+        document.getElementById('check_in').setAttribute('min', getToday());
+    
+        // Set the value of the check-in field to today
+        document.getElementById('check_in').value = getToday();
+    </script>
+    <script>
+        // Get today's date in the format "YYYY-MM-DD"
+        function getToday() {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, '0');
+          const day = String(today.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        }
+    
+        // Set the minimum date for the check-out field to today
+        document.getElementById('check_out').setAttribute('min', getToday());
+    
+        // Set the value of the check-out field to today
+        document.getElementById('check_out').value = getToday();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="/JSFILES/event.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Hall Booking</title>
+    <link rel="stylesheet" type="text/css" href="/CSSFILE/REGISTARTIONCSS.css">
+    
+</head>
+
+<nav>  
+    <div class="topnav">
+      <a class="active" href="/CODES/Hhome.html">HOME</a>
+      <a href="/CODES/About us.html">ABOUT US</a>
+      <a href="/CODES/Contect.html">CONTACT</a>
+      <a href="/CODES/Booking.html">BOOKINGS</a>
+      <a href="/CODES/User.html">USER</a>
+      
+        <span id="lo">
+          
+          <span id="logoname">Rudraaksh Palace</span>
+        </span>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+<body>
+    <div class="container">
+        <h1>Wedding Hall Booking</h1><br>
+        <center><p>(Comfort, Relaxation & Luxury)</p></center>
+        
+        <form id="booking-form">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                <small id="name-error" style="color: red; display: none;">Please enter alphabetic characters only.</small>
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact:</label>
+                <input type="phone" id="phone" name="phone" pattern="[0-9]{10}" required>
+                <small id="phone-error" style="color: red; display: none;">Please enter a 10-digit phone number.</small>
+            </div>
+            <div class="form-group">
+                <label for="check_in">Check-in Date:</label>
+                <input type="date" id="check_in" name="check-in" required>
+            </div>
+            <div class="form-group">
+                <label for="check_out">Check-out Date:</label>
+                <input type="date" id="check_out" name="check_out" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="days">How many Days for booking (Maximum 3 days):</label>
+                <select id="days" name="days" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Booking Request</button>
+            </div>
+            <br>
+            <div class="alert" style="display: none;">Your booking Request has been sent</div>
+        </form>
+    </div>
+    <script>
+        // Get today's date in the format "YYYY-MM-DD"
+        function getToday() {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, '0');
+          const day = String(today.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        }
+    
+        // Set the minimum date for the check-in field to today
+        document.getElementById('check_in').setAttribute('min', getToday());
+    
+        // Set the value of the check-in field to today
+        document.getElementById('check_in').value = getToday();
+        
+        // Function to validate alphabetic characters only for the name field
+        document.getElementById('name').addEventListener('input', function () {
+            var nameInput = document.getElementById('name').value;
+            var nameRegex = /^[a-zA-Z\s]*$/;
+            var nameError = document.getElementById('name-error');
+            if (!nameRegex.test(nameInput)) {
+                nameError.style.display = 'block';
+            } else {
+                nameError.style.display = 'none';
+            }
+        });
+        
+        // Function to validate 10-digit phone number
+        document.getElementById('phone').addEventListener('input', function () {
+            var phoneInput = document.getElementById('phone').value;
+            var phoneError = document.getElementById('phone-error');
+            if (phoneInput.length !== 10) {
+                phoneError.style.display = 'block';
+            } else {
+                phoneError.style.display = 'none';
+            }
+        });
+    </script>
+    <script>
+        // Get today's date in the format "YYYY-MM-DD"
+        function getToday() {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, '0');
+          const day = String(today.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        }
+    
+        // Set the minimum date for the check-out field to today
+        document.getElementById('check_out').setAttribute('min', getToday());
+    
+        // Set the value of the check-out field to today
+        document.getElementById('check_out').value = getToday();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="/JSFILES/new js/weeding.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="/JSFILES/new js/weeding.js"></script>
+    
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.alert('Your booking request has been sent successfully!');
+            this.reset();
+        });
+    </script>
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting normally
+    
+            // Here you would typically have your code to submit the form data
+            // For example, sending it to Firebase or your server
+    
+            // After successful submission, show the alert
+            window.alert('Your booking request has been sent successfully!');
+    
+            // Optionally, you can reset the form after successful submission
+            this.reset();
+        });
+    </script>
+</body>
+</html>

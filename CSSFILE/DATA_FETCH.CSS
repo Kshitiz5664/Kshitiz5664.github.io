@@ -1,0 +1,165 @@
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+.admin_panel {
+    background-color: #2c3e50;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.admin_panel h2 {
+    color: #ecf0f1;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.admin_panel a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-right: 0.9375rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-top: 0.625rem;
+}
+
+.admin_panel a:hover {
+    color: #3498db;
+}
+
+.Display_panel {
+    background-color: #ffffff;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.heding_display {
+    font-size: 1.375rem;
+    color: #2c3e50;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.625rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.625rem;
+}
+
+.table-dark {
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.table th {
+    background-color: #2c3e50;
+    font-weight: bold;
+}
+
+.table tbody tr {
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #2980b9;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.3125rem;
+}
+
+label {
+    margin-right: 0.9375rem;
+    color: #2c3e50;
+}
+
+h3 {
+    color: #2c3e50;
+    margin-top: 1.875rem;
+    margin-bottom: 0.9375rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0.625rem;
+    }
+
+    .admin_panel {
+        padding: 0.9375rem;
+    }
+
+    .admin_panel h2 {
+        font-size: 1.25rem;
+    }
+
+    .admin_panel a {
+        font-size: 0.875rem;
+        margin-right: 0.625rem;
+    }
+
+    .heding_display {
+        font-size: 1.125rem;
+    }
+
+    .table th, .table td {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 0.3125rem;
+    }
+
+    .admin_panel {
+        padding: 0.625rem;
+    }
+
+    .admin_panel h2 {
+        font-size: 1rem;
+    }
+
+    .admin_panel a {
+        font-size: 0.75rem;
+        margin-right: 0.3125rem;
+        margin-top: 0.3125rem;
+    }
+
+    .heding_display {
+        font-size: 1rem;
+    }
+
+    .table th, .table td {
+        padding: 0.3125rem;
+    }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Booking</title>
+    <link rel="stylesheet" type="text/css" href="/CSSFILE/REGISTARTIONCSS.css">
+</head>
+
+<nav>  
+    <div class="topnav">
+      <a class="active" href="/CODES/Hhome.html">HOME</a>
+      <a href="/CODES/About us.html">ABOUT US</a>
+      <a href="/CODES/Contect.html">CONTACT</a>
+      <a href="/CODES/Booking.html">BOOKINGS</a>
+      <a href="/CODES/User.html">USER</a>
+      
+        <span id="lo">
+          
+          <span id="logoname">Rudraaksh Palace</span>
+        </span>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+<body>
+    <div class="container">
+        <h1>Room Booking</h1><br>
+        <div class="alert" id="confirmation-message"></div>
+        <form id="booking-form" onsubmit="submitBooking(event)">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact:</label>
+                <input type="phone" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="check_in">Check-in Date:</label>
+                <input type="date" id="check_in" name="check_in" min="" value="" required>
+            </div>
+            <div class="form-group">
+                <label for="check_out">Check-out Date:</label>
+                <input type="date" id="check_out" name="check_out" min="" value="" required>
+            </div>
+            <div class="form-group">
+                <label for="room_type">Booking Type:</label>
+                <select id="room_type" name="room_type" required>
+                    <option value="single">Single Room</option>
+                    <option value="double">Double Room</option>
+                    <option value="suite">Suite</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Booking Request</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="/JSFILES/Hotel_room2.js"></script>
+    <script>
+        function submitBooking(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            
+            // Perform your booking submission logic here
+            
+            // Display confirmation message
+            const confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.textContent = 'Booking Request Confirmed';
+            confirmationMessage.style.color = 'red';
+        }
+
+        // Get today's date in the format "YYYY-MM-DD"
+        function getToday() {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, '0');
+          const day = String(today.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        }
+    
+        // Set the minimum date for the input fields to today
+        document.getElementById('check_in').setAttribute('min', getToday());
+        document.getElementById('check_out').setAttribute('min', getToday());
+    
+        // Set the value of the input fields to today
+        document.getElementById('check_in').value = getToday();
+        document.getElementById('check_out').value = getToday();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <!-- <link rel="stylesheet" href="/CSSFILE/index_git.css"> -->
+</head>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.message {
+    font-size: 24px;
+    color: #333;
+}
+
+.success {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    color: #3c763d;
+    font: 25px;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+#msg {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#greet {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #333;
+}
+.backbutton{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: rgba(71, 167, 251, 0.748);
+    text-align: center;
+    font-size: 15px;
+    border-radius: 10px;
+
+}
+
+</style>
+
+<body>
+    <center>
+        <div style="margin:100px">
+            <span class="message" style="color: royalblue; font-size: 30px; font-weight: bolder;">Hello</span>
+            <div class="success"><span>Welcome to Rudraaksh Palace..., You are successfully logged in!!!</span></div><br />
+            <h2 id="msg"></h2>
+            <h2 id="greet"></h2>
+            <a href="/CODES/Hhome.html"><button class="backbutton">Back To Home Page</button></a><br><br>
+            <button id="signoutbutton" class="btn btn-danger">Logout</button>
+        </div>
+    </center>
+    <script>
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+    
+        let MsgHead = document.getElementById('msg');
+        let GreetHead = document.getElementById('greet');
+        let SignoutBtn = document.getElementById('signoutbutton');
+        let EmailIdSpan = document.getElementById('email-id');
+    
+        let Signout = () => {
+            sessionStorage.removeItem("user-creds");
+            sessionStorage.removeItem("user-info");
+            alert('Logout successful!');
+            window.location = 'Login.html';
+        }
+    
+        let CheckCred = () => {
+            if (!sessionStorage.getItem("user-creds")) {
+                window.location.href = 'User.html';
+            } else {
+                MsgHead.innerText = `User with email "${UserCreds.email}" logged in`;
+                GreetHead.innerText = `Welcome to our website ${UserInfo.name}`;
+                EmailIdSpan.innerText = UserInfo.email;
+            }
+        }
+    
+        window.addEventListener('load', CheckCred);
+        SignoutBtn.addEventListener('click', Signout);
+    </script>
+    
+</body>
+
+</html>

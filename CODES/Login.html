@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+        <style>
+        body{
+            background-image: url(/IMAGES/launge4.avif);
+            height: 100px;
+            margin: 0px;
+            padding: 0px;
+        }
+        .mainbox{
+            display: flex;
+            align-items: center;
+            margin-left: 350px;
+            margin-top: 150px;
+        }
+        .box1{
+            background-color:  #b89d04;
+            opacity: 75%;
+            padding: 5%;
+            width: 260px;
+            height: 280px;
+            border-bottom: 5px solid aliceblue;
+            border-top: 5px solid aliceblue;
+            border-left: 5px solid aliceblue;
+            text-align: center;
+           
+     
+        }
+        .box2{
+            background-color: #ffffff;
+            width: 260px;
+            height: 280px;
+            opacity: 70%;
+            padding: 5%;
+            border-bottom: 5px solid #b89d04;
+            border-top: 5px solid #b89d04;
+            border-right: 5px solid #b89d04;
+            text-align: right;
+        }
+        .box{
+            text-align: center;
+        }
+        h1{
+            color: white;
+            font-size: 30px;
+           
+           
+        }
+        h2{
+            text-align: center;
+            color:#b69b03;
+            font-size: 25px;
+     
+        }
+        p{
+            font-size: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        .x-button{
+            text-align: center;
+            border: 1px solid black;
+            padding: 1px;
+            width: 30px;
+            height: 30px;
+        }
+        button{
+            width: 120px;
+            height: 30px;
+            color: #b69b03;
+            font-size: 13px;
+            font-weight: bolder;
+            border: 2px  solid #b69b03;
+ 
+        }
+        label{
+            color: #b69b03;
+            font-size: 18px;
+        }
+        input{
+            width: 250px;
+            height: 20px;
+            color: rgb(0, 0, 0);
+            border-color: #b69b03;
+        }
+        button:hover{
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+        }
+        @media  (min-width: 500px) and (max-width: 1025px){
+     
+            body{
+                background-color: #c4c298;
+                margin: 0px;
+                padding: 0px;
+            }
+            .mainbox{
+                display:flex;
+                margin-left: 8%
+            }
+     
+        }
+        @media  (max-width: 431px){
+            body{
+                background-color: #ffffff;
+                margin: 0px;
+                padding: 0px;
+            }
+            .mainbox{
+                flex-direction: column;
+                margin-left: 0%;
+                margin-top: 0%;
+                padding: 10%;
+            }
+            .box1{
+            border-right: 5px solid aliceblue;
+            border-top: 5px solid aliceblue;
+            border-left: 5px solid aliceblue;
+            border-bottom: 0px;
+            text-align: center;
+            }
+            .box2{
+            border-bottom: 5px solid #b69b03;
+            border-left: 5px solid #b69b03;
+            border-right: 5px solid #b69b03;
+            border-top: 0px;
+            text-align: right;
+            height: 310px;
+     
+            }
+            .box{
+                text-align: center;
+            }
+ 
+        }
+    </style>
+</head>
+<body>
+    <div class="mainbox">
+        <div class="box1">
+            <!-- Your content for box1 -->
+		<h1>Rudraksha Palace</h1>
+            <p>Book Online to Feel the Luxury.<br><br>Get 10% Off on Pre Booking Online.<br><br>Get Much More...</p>
+
+        </div>
+
+        <div class="box2">
+            <!-- Your content for box2 -->
+		 <a href="/CODES/index.html"><button class="x-button">X</button></a>
+            <h2>Sign in User</h2>
+            <div class="signup-form">
+                <form id="signup-form" action="#" method="post" onsubmit="event.preventDefault(); SignInUser();">
+                    <div class="form-group">
+                        <label for="email">Email </label>
+                        <input type="email" id="email" name="email" required>
+                        <small class="error-msg" id="email-error"></small>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="password">Password </label>
+                        <input type="password" id="password" name="password" required>
+                        <small class="error-msg" id="password-error"></small>
+                    </div>
+                    <br>
+                    <center>
+                        <button class="btn btn-primary" type="submit" id="loginButton">Login</button>
+                        <a href="/CODES/Signup.html"><button class="btn btn-primary" type="button">Create new user </button></a><br><br>
+                        <label id="forgotpasslebel" style="cursor:pointer;margin-top: 10px; margin-left: 2px; color: red;">Forgot Password?</label>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword , sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ 
+        const firebaseConfig = {
+            apiKey: "AIzaSyCbhHNsDCFxuqTvR-uda0agzFuJOZ-HqrE",
+        authDomain: "rudraakhs.firebaseapp.com",
+        databaseURL: "https://rudraakhs-default-rtdb.firebaseio.com",
+        projectId: "rudraakhs",
+        storageBucket: "rudraakhs.appspot.com",
+        messagingSenderId: "684661124796",
+        appId: "1:684661124796:web:89261ceceea8c76e3b6ab9",
+        measurementId: "G-BLZH5YCPLS"
+        };
+ 
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+ 
+        let Email = document.getElementById('email');
+        let Password = document.getElementById('password');
+        let emailError = document.getElementById('email-error');
+        let passwordError = document.getElementById('password-error');
+        let ForgotPassLabel = document.getElementById('forgotpasslebel');
+ 
+        function SignInUser() {
+            console.log("Sign in function called");
+        
+            // Reset error messages
+            emailError.textContent = '';
+            passwordError.textContent = '';
+        
+            signInWithEmailAndPassword(auth, Email.value, Password.value)
+                .then((userCredential) => {
+                    console.log("Sign in success:", userCredential);
+        
+                    const userId = userCredential.user.uid;
+                    console.log("User ID:", userId);
+        
+                    get(child(ref(db), 'UsersAuthList/' + userId))
+                        .then((snapshot) => {
+                            console.log("Snapshot:", snapshot);
+        
+                            if (snapshot.exists()) {
+                                console.log("User data exists");
+        
+                                sessionStorage.setItem("user-info", JSON.stringify({
+                                    Name: snapshot.val().Name
+                                }));
+                                sessionStorage.setItem("user-creds", JSON.stringify(userCredential.user));
+        
+                                // Check if admin email
+                                if (Email.value === 'rudraakshhotel1@gmail.com') {
+                                    console.log("Admin login");
+                                    window.location.href = "/CODES/Admin.html"; // Redirect to admin page
+                                } else {
+                                    console.log("User login");
+                                    window.location.href = "/CODES/Hhome.html"; // Redirect to user home page
+                                }
+                            } 
+                            else {
+                                console.log("User data does not exist");
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error getting user data: ", error);
+                        });
+                })
+                .catch((error) => {
+                    // Handle specific errors and display appropriate error messages
+                    switch (error.code) {
+                        case 'auth/wrong-password':
+                            passwordError.textContent = 'Invalid password';
+                            break;
+                        case 'auth/user-not-found':
+                            emailError.textContent = 'User not found';
+                            break;
+                        default:
+                            alert('Login failed: ' + error.message);
+                            break;
+                    }
+                    console.log("Sign in error:", error.code, error.message);
+                });
+        }
+        
+        let ForgotPassword =()=>{
+            sendPasswordResetEmail(auth, Email.value)
+            .then( ()=>{
+                alert(`A reset link has been sent to ${Email.value}`)
+            })
+            .catch((error)=>{
+                console.log(error.code);
+                console.log(error.message);
+            })
+        }
+ 
+        document.getElementById('loginButton').addEventListener('click', SignInUser);
+        ForgotPassLabel.addEventListener('click',ForgotPassword);
+    </script>
+</body>
+</html>

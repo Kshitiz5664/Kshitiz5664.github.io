@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body{
+            background-image: url(/IMAGES/launge4.avif);
+            height: 100px;
+            margin: 0px;
+            padding: 0px;
+        }
+        .mainbox{
+            display: flex;
+            align-items: center;
+            margin-left: 350px;
+            margin-top: 150px;
+        }
+        .box1{
+            background-color:  #b89d04;
+            opacity: 75%;
+            padding: 5%;
+            width: 260px;
+            height: 350px;
+            border-bottom: 5px solid aliceblue;
+            border-top: 5px solid aliceblue;
+            border-left: 5px solid aliceblue;
+            text-align: center;
+           
+     
+        }
+        .box2{
+            background-color: aliceblue;
+            width: 260px;
+            height: 350px;
+            opacity: 55%;
+            padding: 5%;
+            border-bottom: 5px solid #b89d04;
+            border-top: 5px solid #b89d04;
+            border-right: 5px solid #b89d04;
+            text-align: right;
+        }
+        .box{
+            text-align: center;
+        }
+        h1{
+            color: white;
+            font-size: 30px;
+        }
+        h2{
+            text-align: center;
+            color:#b69b03;
+            font-size: 25px;
+     
+        }
+        p{
+            font-size: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        .x-button{
+            text-align: center;
+            border: 2px solid rgb(255, 255, 255);
+            padding: 1px;
+            width: 30px;
+            height: 30px;
+            float: left;
+            background-color: #b69b03;
+            color: rgb(0, 0, 0);
+
+        }
+        label{
+            color: #b69b03;
+            font-size: 18px;
+        }
+        input{
+            width: 250px;
+            height: 20px;
+            color: rgb(0, 0, 0);
+            border-color: #b69b03;
+        }
+        button{
+            width: 220px;
+            height: 30px;
+            font-size: 13px;
+            font-weight: bolder; 
+            margin: 1%;
+            
+        }
+        button:hover{
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+        }
+        
+
+        @media  (min-width: 500px) and (max-width: 1025px){
+     
+            body{
+                background-color: #c4c298;
+                margin: 0px;
+                padding: 0px;
+            }
+            .mainbox{
+                display:flex;
+                margin-left: 8%
+            }
+            .box1,.box2{
+                height: 375px;
+            }
+     
+        }
+        @media  (max-width: 431px){
+            body{
+                background-color: #c4c298;
+                margin: 0px;
+                padding: 0px;
+            }
+            .mainbox{
+                flex-direction: column;
+                margin-left: 0%;
+                margin-top: 0%;
+                padding: 10%;
+            }
+            .box1{
+            border-right: 5px solid aliceblue;
+            border-top: 5px solid aliceblue;
+            border-left: 5px solid aliceblue;
+            text-align: center;
+            }
+            .box2{
+            border-bottom: 5px solid #544e4e;
+            border-left: 5px solid #544e4e;
+            border-right: 5px solid #544e4e;
+            text-align: right;
+            height: 400px;
+     
+            }
+            .box{
+                text-align: center;
+            }
+     
+        }
+     
+     
+    </style>
+</head>
+<body>
+    <div class="mainbox">
+                <div class="box1">
+        <a href="/CODES/index.html"><button class="x-button">X</button></a><br><br>
+
+            <h1>Rudraksha Palace</h1>
+            <p>Book Online to Feel the Luxury.<br><br>Get 10% Off on Pre Booking Online.<br><br>Get Much More...</p>
+        </div>
+        <div class="box2">
+            
+            <div class="signup-form">
+                <h2>Sign Up</h2>
+                <form id="signup-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                        <small class="error-msg" id="name-error"></small>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="email">Email </label>
+                        <input type="email" id="email" name="email" required>
+                        <small class="error-msg" id="email-error"></small>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="password">Password </label>
+                        <input type="password" id="password" name="password" required>
+                        <small class="error-msg" id="password-error"></small>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password </label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <small class="error-msg" id="confirm-password-error"></small>
+                    </div>
+                    <br>
+                    <center>
+                    <button class="btn btn-primary" type="button" id="registerButton" style="background-color:rgb(0, 157, 255); color: white; border: 2px  solid blue;">Create New User</button><br>
+
+                     <a href="/CODES/Login.html"><button class="btn btn-primary" type="BUTTON" style="background-color:red; color: white; border: 2px  solid rgb(156, 41, 41);">Login</button></a></center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            // Your Firebase configuration
+ apiKey: "AIzaSyCbhHNsDCFxuqTvR-uda0agzFuJOZ-HqrE",
+    authDomain: "rudraakhs.firebaseapp.com",
+    databaseURL: "https://rudraakhs-default-rtdb.firebaseio.com",
+    projectId: "rudraakhs",
+    storageBucket: "rudraakhs.appspot.com",
+    messagingSenderId: "684661124796",
+    appId: "1:684661124796:web:89261ceceea8c76e3b6ab9",
+    measurementId: "G-BLZH5YCPLS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        const auth = getAuth(app);
+
+        let Name = document.getElementById('name');
+        let Email = document.getElementById('email');
+        let Password = document.getElementById('password');
+        let ConfirmPassword = document.getElementById('confirm-password');
+        let signupForm = document.getElementById('signup-form');
+        let nameError = document.getElementById('name-error');
+        let emailError = document.getElementById('email-error');
+        let passwordError = document.getElementById('password-error');
+        let confirmPasswordError = document.getElementById('confirm-password-error');
+
+        function RegisterUser() {
+        // Reset error messages
+        nameError.textContent = '';
+        emailError.textContent = '';
+        passwordError.textContent = '';
+        confirmPasswordError.textContent = '';
+
+        createUserWithEmailAndPassword(auth, Email.value, Password.value)
+            .then((userCredential) => {
+                set(ref(db, 'UsersAuthList/' + userCredential.user.uid), {
+                    UserName: Name.value
+                });
+                
+                // Display a success message
+                alert('Account created successfully!');
+
+                // Optionally, you can redirect to a new page or perform additional actions after successful registration.
+            })
+            .catch((error) => {
+                // Handle specific errors and display appropriate error messages
+                switch (error.code) {
+                    case 'auth/weak-password':
+                        passwordError.textContent = 'Password should be at least 6 characters';
+                        break;
+                    case 'auth/email-already-in-use':
+                        emailError.textContent = 'Email is already in use';
+                        break;
+                    // Add more cases as needed
+                    default:
+                        alert(error.message); // Display a general error message
+                        break;
+                }
+                console.log(error.code);
+                console.log(error.message);
+            });
+    }
+
+    document.getElementById('registerButton').addEventListener('click', RegisterUser);
+</script>
+</body>
+</html>
