@@ -1,270 +1,431 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Rudrasksha Hotel</title>
-    <script src="https://kit.fontawesome.com/211568e8ea.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5;
-        }
+<html>
+    <head>
+        <title> Index </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/211568e8ea.js" crossorigin="anonymous"></script>
+<style>
 
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
+body {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-        .admin_panel {
-            background-color: #1a237e;
-            width: 250px;
-            color: white;
-            padding-top: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
+.topnav {
+  z-index: 2;
+   padding-top: 30px; 
+  background-color:white;
+  width: 100%;
+  position: fixed;
+}
 
-        .Display_panel {
-            flex-grow: 1;
-            padding: 20px;
-            padding-left: 30px;
-        }
+#logo{
+  height: 50px;
+  position: fixed;
+  top: 10px;
+  right: 180px;
+}
 
-        h2 {
-            background-color: #303f9f;
-            color: white;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            letter-spacing: 1px;
-        }
+#logoname{
+  position: fixed;
+  top: 30px;
+  right: 115px;
+  font-size: x-large;
+  font-weight: bold;
+  color: #b69b03;
+}
 
-        .admin_panel a {
-            color: #e8eaf6;
-            padding: 15px 20px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s;
-            font-size: 16px;
-            border-left: 4px solid transparent;
-        }
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-        .admin_panel a:hover {
-            background-color: #3949ab;
-            border-left: 4px solid #ffc107;
-        }
+.topnav a:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
 
-        .heding_display {
-            background-color: #3f51b5;
-            color: white;
-            font-size: 20px;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+.topnav a.active {
+  background-color: #b89d04;
+  color: white;
+  
+}
+  .boxes{
+    z-index: 1;
+  position: relative;
+    margin-top:0;
+    display: flex;
+}
+  .div1{
+    background-color: #b89d04;
+    width: 30vw;
+    height: 30vh;
+    opacity: 0.8;
+    color: aliceblue;
 
-        .mainbox {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-bottom: 25px;
-        }
+}
+  .div2{
+    background-color: #f0c126;
+    width: 30vw;
+    height: 30vh;
+    opacity: 0.8;
+    color: aliceblue;
+}
+button {
+  color:#b89d04;
+  padding: 8px 12px;
+  text-align: center;
+  text-emphasis-style: bold;
+  margin: 4px 2px;
+  border: 2px solid aliceblue;
+}
+button:hover{
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+header{
+  background-color: #b89d04;
+  color: aliceblue;
+  font-style: bold;
+  text-align: center;
+}
+  .center{
+   
+  margin: auto;
+  width: 80%;
+  padding: 30px;
+}
 
-        .box1 {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            transition: all 0.3s;
-            overflow: hidden;
-            position: relative;
-        }
+  .blackbox{
+  background-color: #000000;
+  width: auto;
+  color: aliceblue;
+  padding: 10px;
+}
+  .login{
+  display: flex;
+  background-color: #b69b03;
 
-        .box1:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
+}
+  .img1{
+    width:450px;
+    height:300px; 
+    padding: 1.7%;
+    }
+p{
+  text-align: center;
+}
+  .addbox{
+    display: flex;
+    flex-direction: row;
+    width: 65%;
+    height: 300px;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #ddaa43;
+    margin-top: -160px;
+}
+  .buynow{
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+      padding: 9%;
+      padding-left: 15%;
+      font-size: larger;
+}
+  .butbuy{
+        border-radius: 0%;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        font-size: 15px;
 
-        .box1 h3 {
-            margin-top: 0;
-            color: #303f9f;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+}
 
-        .box1 p {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ffc107;
-            margin-bottom: 0;
-        }
+.slideshow-container {
+      max-width: 100%;
+      position: relative;
+      margin: auto;
+    }
 
-        .box1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: #ffc107;
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
+ 
 
-        .box1:hover::after {
-            transform: scaleX(1);
-        }
-        .entry-form {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 25px;
-        }
+    /* Style for individual images */
+    .mySlides {
+      display: none;
+    }
 
-        .entry-form h3 {
-            color: #303f9f;
-            margin-top: 0;
-        }
+ 
 
-        .entry-form input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    /* Style for the navigation dots */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #e7d571;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .active {
+      background-color: #b69b03;
+    }
 
-        .entry-form button {
-            background-color: #ffc107;
-            color: #1a237e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
+@media  (min-width: 500px) and (max-width: 1025px){
+  .login{
+    width:auto;
+    display:block;
+  }
+  .img1{
+    max-width:220px;
+    height: auto;
+    padding: 2%;
+  }
+  .addbox{
+    margin-left: 23%;
+    display: block;
+    width: 400px;
+    height: 500px;
+    
+  }
+  .img2{
+    width: auto;
+    height: 267px;
+  }
+  .buynow{
+  margin-right: 10%;
+  }
 
-        .entry-form button:hover {
-            background-color: #ffca28;
-        }
+  .div1{
+    width: 35vw;
+    height: 35vh;
+  }
+  .div2{
+    width: 35vw;
+    height: 35vh;
+  }
+  .topnav a{
+    font-size: 12px;
+  }
+  #logoname{
+    right: 30px;
+    font-size: 14px;
+  }
+}
+@media  (max-width: 431px) {
+  .login{
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .img1{
+    width: 300px;
+    height: 200px;
+  }
+  
+  .addbox{
+    flex-direction: column;
+    height: 400px;
 
-        @media (max-width: 768px) {
-            .admin_panel {
-                width: 100%;
-                position: static;
-            }
-            
-            .Display_panel {
-                padding-left: 20px;
-            }
-            
-            .mainbox {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="admin_panel">
-            <h2>Rudrasksha Hotel</h2>
-            <a href="/CODES/Admin.html"><i class="fas fa-home"></i> Home</a>
-            <a href="/CODES/Fetch_Data_Dinning.html"><i class="fas fa-utensils"></i> Dining</a>
-            <a href="/CODES/Room_Booking_admin.html"><i class="fas fa-bed"></i> Room</a>
-            <a href="/CODES/Fetch_Data_Event.html"><i class="fas fa-calendar-alt"></i> Event</a>
-            <a href="/CODES/Fetch_Data_Weeding.html"><i class="fas fa-rings-wedding"></i> Wedding</a>
-            <a href="/CODES/index_User.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  }
+  .boxes{
+    margin-top: 160px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .div1{
+    width: 90vw;
+    height: 30vh;
+  }
+  .div2{
+    width: 90vw;
+    height: 30vh;
+    
+  }
+  .topnav a{
+    font-size: 7px;
+  }
+  #logoname{
+    right: 25px;
+    font-size: 10px;
+    margin-top: -10px;
+  }
+  p{
+    font-size: 12px;
+  }
+  h4{
+    font-size: 12px;
+  }
+  .center{
+    width: 90%;
+    padding: 0%;
+  }
+
+}
+</style>
+
+      <nav>  
+        <div class="topnav">
+          <a class="active" href="/CODES/index.html">HOME</a>
+          <a href="/CODES/indexAbout.html">ABOUT US</a>
+          <a href="/CODES/indexContect.html">CONTACT</a>
+          <a href="/CODES/Login.html">BOOKINGS</a>
+          <a href="/CODES/Login.html">LOGIN</a>
+            <span id="lo">
+              
+              <span id="logoname">Rudraaksh Palace</span>
+            </span>
+          </div>
+        </nav>
+
+      <body>
+        <div class="slider box">
+          
+          <div class="slideshow-container">
+              <!-- Slides -->
+              <div class="mySlides">
+                <img src="/IMAGES/launge3.jpg" style="width:100%">
+              </div>
+              
+              
+              
+              <div class="mySlides">
+                <img src="/IMAGES/dine2.avif" style="width:100%">
+              </div>
+              
+              
+              
+              <div class="mySlides">
+                <img src="/IMAGES/event2.avif" style="width:100%">
+              </div>
+              
+              
+          
+          <!-- Navigation dots -->
+          <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
         </div>
         
-        <div class="Display_panel">
-            <div class="Display_panel">
-                <div class="heding_display"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
-                
-                <div class="mainbox">
-                    <div class="box1">
-                        <h3>Total Rooms</h3>
-                        <p id="totalRooms">30</p>
-                    </div>
-                    <div class="box1">
-                        <h3>Occupied Rooms</h3>
-                        <p id="occupiedRooms">25</p>
-                    </div>
-                    <div class="box1">
-                        <h3>Available Rooms</h3>
-                        <p id="availableRooms">5</p>
-                    </div>
-                </div>
-              
-                <div class="mainbox">
-                    <div class="box1">
-                        <h3>Today's Bookings</h3>
-                        <p id="todayBookings">12</p>
-                    </div>
-                    <div class="box1">
-                        <h3>Today's Table Bookings</h3>
-                        <p id="todayRevenue">15</p>
-                    </div>
-                    <div class="box1">
-                        <h3>Upcoming Events</h3>
-                        <p id="upcomingEvents">3</p>
-                    </div>
-                </div>
-    
-                <div class="entry-form">
-                    <h3>Manual Data Entry</h3>
-                    <form id="manualEntryForm">
-                        <input type="number" id="totalRoomsInput" placeholder="Total Rooms">
-                        <input type="number" id="occupiedRoomsInput" placeholder="Occupied Rooms">
-                        <input type="number" id="todayBookingsInput" placeholder="Today's Bookings">
-                        <input type="number" id="todayRevenueInput" placeholder="Today's Table Booking">
-                        <input type="number" id="upcomingEventsInput" placeholder="Upcoming Events">
-                        <button type="submit">Update Dashboard</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    
+        
+        
         <script>
-            document.getElementById('manualEntryForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Update Total Rooms
-                const totalRooms = document.getElementById('totalRoomsInput').value;
-                if (totalRooms) document.getElementById('totalRooms').textContent = totalRooms;
-    
-                // Update Occupied Rooms and calculate Available Rooms
-                const occupiedRooms = document.getElementById('occupiedRoomsInput').value;
-                if (occupiedRooms) {
-                    document.getElementById('occupiedRooms').textContent = occupiedRooms;
-                    const availableRooms = totalRooms - occupiedRooms;
-                    document.getElementById('availableRooms').textContent = availableRooms;
-                }
-    
-                // Update Today's Bookings
-                const todayBookings = document.getElementById('todayBookingsInput').value;
-                if (todayBookings) document.getElementById('todayBookings').textContent = todayBookings;
-    
-                // Update Today's Revenue
-                const todayRevenue = document.getElementById('todayRevenueInput').value;
-                if (todayRevenue) document.getElementById('todayRevenue').textContent = '$' + todayRevenue;
-    
-                // Update Upcoming Events
-                const upcomingEvents = document.getElementById('upcomingEventsInput').value;
-                if (upcomingEvents) document.getElementById('upcomingEvents').textContent = upcomingEvents;
-    
-                // Clear the form
-                this.reset();
-            });
-        </script>
-    </div>
-</body>
-</html>
+          var slideIndex = 0;
+            showSlides();
+            
+            
+            
+            function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              
+              
+              
+              slideIndex++;
+              
+              
+              
+              if (slideIndex > slides.length) {
+                slideIndex = 1;
+              }
+              
+              
+              
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              
+              
+              
+              slides[slideIndex - 1].style.display = "block";
+              dots[slideIndex - 1].className += " active";
+              
+              setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+            </script>
+          </div>
+          <div class="center">
+          
+          <center>
+            <div class="boxes" style="bottom: 150px;">
+              <div class="div1">
+                <br>
+                <i class="fa-solid fa-utensils" style="font-size: 30px;"></i>
+                <h4>Dining</h4>
+                <p>Book Dining Table</p>
+                <a href="/CODES/Login.html"><button class="button3">click</button></a>   
+              </div>
+              <div class="div2">
+                <br>
+              <i  class="fa-solid fa-calendar-check" style="font-size: 30px;"></i>
+              <h4>Events</h4>
+              <p>Book for an Event</p>
+              <a href="/CODES/Login.html"><button class="button3">click</button></a>
+            </div>
+            <div class="div1">
+              <br>
+              <i class="fa-solid fa-bed" style="font-size: 30px;"></i>
+                <h4>Rooms</h4>
+                <p>Book luxuary suite</p>
+                <a href="/CODES/Login.html"><button class="button3">click</button></a>
+            </div>
+            <div class="div2">
+              <br>
+              <i class="fa-regular fa-image" style="font-size: 30px;"></i>
+                <h4>Gallary</h4>
+                <p>View of hotel</p>
+                <a href="/CODES/indexgalary.html"><button class="button3">click</button></a>
+            </div>
+          </div>
+          </center>
+        </div>
+       
+<br>
+        <div class="addbox">
+          <img class="img2" src="/IMAGES/dine.avif">
+          
+          <div class="buynow">
+              Book Now
+              <br>
+              <br>
+              "Get 10% Extra OFF on every Bookings"<br><br>
+              <a href="/CODES/Login.html"><button class="butbuy">Book Now</button></a>
+          </div>
+          
+        </div>
+        <br>
+        <br>
+
+           <div class="login">
+
+             <img class="img1" src="/IMAGES/launge4.avif">
+             <img class="img1" src="/IMAGES/launge2.avif">
+             <img class="img1" src="/IMAGES/res.avif">
+        </div>
+        
+        <div class="blackbox">
+          <h4 style="text-align: center;">Follow For More</h4>  
+
+          <p> Privacy  |  Disclaimer  |  Contact  |  Sitemap  </p>
+          <p>@2023  Rudraksha Palace Enterprise Ltd. All Right Reserved.</p>
+          <p>-Designed & Developed By: Kshitiz Tomar & Krish Vrema-</p>
+          <br>
+        </div>
+        
+    </body>
+</html> 
