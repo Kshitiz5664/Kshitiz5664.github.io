@@ -184,118 +184,87 @@
             <a href="/CODES/Fetch_Data_Weeding.html"><i class="fas fa-rings-wedding"></i> Wedding</a>
             <a href="/CODES/index_User.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
-        
+       
         <div class="Display_panel">
-            <div class="heding_display"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
-            
-            <div class="mainbox">
-                <div class="box1">
-                    <h3>Total Rooms</h3>
-                    <p id="totalRooms">30</p>
+            <div class="Display_panel">
+                <div class="heding_display"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
+               
+                <div class="mainbox">
+                    <div class="box1">
+                        <h3>Total Rooms</h3>
+                        <p id="totalRooms">30</p>
+                    </div>
+                    <div class="box1">
+                        <h3>Occupied Rooms</h3>
+                        <p id="occupiedRooms">25</p>
+                    </div>
+                    <div class="box1">
+                        <h3>Available Rooms</h3>
+                        <p id="availableRooms">5</p>
+                    </div>
                 </div>
-                <div class="box1">
-                    <h3>Occupied Rooms</h3>
-                    <p id="occupiedRooms">25</p>
+             
+                <div class="mainbox">
+                    <div class="box1">
+                        <h3>Today's Bookings</h3>
+                        <p id="todayBookings">12</p>
+                    </div>
+                    <div class="box1">
+                        <h3>Today's Table Bookings</h3>
+                        <p id="todayRevenue">15</p>
+                    </div>
+                    <div class="box1">
+                        <h3>Upcoming Events</h3>
+                        <p id="upcomingEvents">3</p>
+                    </div>
                 </div>
-                <div class="box1">
-                    <h3>Available Rooms</h3>
-                    <p id="availableRooms">5</p>
+   
+                <div class="entry-form">
+                    <h3>Manual Data Entry</h3>
+                    <form id="manualEntryForm">
+                        <input type="number" id="totalRoomsInput" placeholder="Total Rooms">
+                        <input type="number" id="occupiedRoomsInput" placeholder="Occupied Rooms">
+                        <input type="number" id="todayBookingsInput" placeholder="Today's Bookings">
+                        <input type="number" id="todayRevenueInput" placeholder="Today's Table Booking">
+                        <input type="number" id="upcomingEventsInput" placeholder="Upcoming Events">
+                        <button type="submit">Update Dashboard</button>
+                    </form>
                 </div>
-            </div>
-          
-            <div class="mainbox">
-                <div class="box1">
-                    <h3>Today's Bookings</h3>
-                    <p id="todayBookings">12</p>
-                </div>
-                <div class="box1">
-                    <h3>Today's Table Bookings</h3>
-                    <p id="todayRevenue">15</p>
-                </div>
-                <div class="box1">
-                    <h3>Upcoming Events</h3>
-                    <p id="upcomingEvents">3</p>
-                </div>
-            </div>
-
-            <div class="entry-form">
-                <h3>Manual Data Entry</h3>
-                <form id="manualEntryForm">
-                    <input type="number" id="totalRoomsInput" placeholder="Total Rooms">
-                    <input type="number" id="occupiedRoomsInput" placeholder="Occupied Rooms">
-                    <input type="number" id="todayBookingsInput" placeholder="Today's Bookings">
-                    <input type="number" id="todayRevenueInput" placeholder="Today's Table Booking">
-                    <input type="number" id="upcomingEventsInput" placeholder="Upcoming Events">
-                    <button type="submit">Update Dashboard</button>
-                </form>
             </div>
         </div>
-    </div>
-
-    <script>
-        // Function to load data from localStorage
-        function loadData() {
-            const elements = ['totalRooms', 'occupiedRooms', 'availableRooms', 'todayBookings', 'todayRevenue', 'upcomingEvents'];
-            elements.forEach(id => {
-                const value = localStorage.getItem(id);
-                if (value) {
-                    document.getElementById(id).textContent = value;
+   
+        <script>
+            document.getElementById('manualEntryForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+               
+                // Update Total Rooms
+                const totalRooms = document.getElementById('totalRoomsInput').value;
+                if (totalRooms) document.getElementById('totalRooms').textContent = totalRooms;
+   
+                // Update Occupied Rooms and calculate Available Rooms
+                const occupiedRooms = document.getElementById('occupiedRoomsInput').value;
+                if (occupiedRooms) {
+                    document.getElementById('occupiedRooms').textContent = occupiedRooms;
+                    const availableRooms = totalRooms - occupiedRooms;
+                    document.getElementById('availableRooms').textContent = availableRooms;
                 }
+   
+                // Update Today's Bookings
+                const todayBookings = document.getElementById('todayBookingsInput').value;
+                if (todayBookings) document.getElementById('todayBookings').textContent = todayBookings;
+   
+                // Update Today's Revenue
+                const todayRevenue = document.getElementById('todayRevenueInput').value;
+                if (todayRevenue) document.getElementById('todayRevenue').textContent = '$' + todayRevenue;
+   
+                // Update Upcoming Events
+                const upcomingEvents = document.getElementById('upcomingEventsInput').value;
+                if (upcomingEvents) document.getElementById('upcomingEvents').textContent = upcomingEvents;
+   
+                // Clear the form
+                this.reset();
             });
-        }
-
-        // Function to save data to localStorage
-        function saveData(id, value) {
-            localStorage.setItem(id, value);
-        }
-
-        // Load data when the page loads
-        window.addEventListener('load', loadData);
-
-        document.getElementById('manualEntryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Update Total Rooms
-            const totalRooms = document.getElementById('totalRoomsInput').value;
-            if (totalRooms) {
-                document.getElementById('totalRooms').textContent = totalRooms;
-                saveData('totalRooms', totalRooms);
-            }
-
-            // Update Occupied Rooms and calculate Available Rooms
-            const occupiedRooms = document.getElementById('occupiedRoomsInput').value;
-            if (occupiedRooms) {
-                document.getElementById('occupiedRooms').textContent = occupiedRooms;
-                saveData('occupiedRooms', occupiedRooms);
-                const availableRooms = totalRooms - occupiedRooms;
-                document.getElementById('availableRooms').textContent = availableRooms;
-                saveData('availableRooms', availableRooms);
-            }
-
-            // Update Today's Bookings
-            const todayBookings = document.getElementById('todayBookingsInput').value;
-            if (todayBookings) {
-                document.getElementById('todayBookings').textContent = todayBookings;
-                saveData('todayBookings', todayBookings);
-            }
-
-            // Update Today's Revenue
-            const todayRevenue = document.getElementById('todayRevenueInput').value;
-            if (todayRevenue) {
-                document.getElementById('todayRevenue').textContent = todayRevenue;
-                saveData('todayRevenue', todayRevenue);
-            }
-
-            // Update Upcoming Events
-            const upcomingEvents = document.getElementById('upcomingEventsInput').value;
-            if (upcomingEvents) {
-                document.getElementById('upcomingEvents').textContent = upcomingEvents;
-                saveData('upcomingEvents', upcomingEvents);
-            }
-
-            // Clear the form
-            this.reset();
-        });
-    </script>
+        </script>
+    </div>
 </body>
 </html>
